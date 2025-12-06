@@ -22,7 +22,8 @@ print ('BASE_DIR' , BASE_DIR)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config ("DJANGO_SECRET_KEY") 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config("DJANGO_DEBUG")
+DEBUG = config("DJANGO_DEBUG", default=False, cast=bool)
+
 
 print("DEBUG" , DEBUG, type(DEBUG))
 
