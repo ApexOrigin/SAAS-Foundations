@@ -5,6 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
+ENV DATABASE_URL="postgresql://neondb_owner:npg_8ld4ncGrsxoP@ep-floral-silence-aflaaoed-pooler.c-2.us-west-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
 # Install required system deps
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential gcc \
