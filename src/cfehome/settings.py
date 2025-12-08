@@ -137,7 +137,8 @@ DATABASES = {
 CONN_MAX_AGE = config("CONN_MAX_AGE", cast=int, default=300)
 DATABASE_URL = config("DATABASE_URL", default="", cast=str)
 
-if DATABASE_URL and DATABASE_URL != "":
+# Only use DATABASE_URL if it's a valid PostgreSQL connection string
+if DATABASE_URL and DATABASE_URL.startswith(("postgres://", "postgresql://", "postgres+psycopg://", "postgresql+psycopg://")):
     import dj_database_url
 
     DATABASES = {
