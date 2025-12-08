@@ -75,7 +75,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     # my-apps
-    # "commando",
+    "commando",
     
     # "profiles",
     # "slippers",
