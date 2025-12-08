@@ -7,9 +7,13 @@
     {% include 'base/css.html' %}
   </head>
   <body>
-    <h1>{{page_title}}</h1>
-    {% include 'nav/navbar.html'%} {% block content %} replace me {% endblock
-    content %}
+    {% include 'nav/navbar.html' %}
+    <div class="max-w-screen-xl mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold">{{page_title}}</h1>
+      {% block content %}
+      <!-- Child templates replace this block -->
+      {% endblock %}
+    </div>
   </body>
   {% include 'base/js.html' %}
 </html>
