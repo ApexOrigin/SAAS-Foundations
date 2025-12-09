@@ -33,5 +33,5 @@ RUN python manage.py collectstatic --noinput || true
 
 EXPOSE 8000
 
-# Run migrations with --fake-initial to handle out-of-order migrations, then start Gunicorn
-CMD ["sh", "-c", "python manage.py migrate --noinput --fake-initial 2>/dev/null || python manage.py migrate --noinput && gunicorn cfehome.wsgi:application --bind 0.0.0.0:8000 --workers 3"]
+# Run migrations then start Gunicorn
+CMD ["sh", "-c", "python manage.py migrate --noinput 2>&1 || true && gunicorn cfehome.wsgi:application --bind 0.0.0.0:8000 --workers 3 --timeout 60"]
