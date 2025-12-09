@@ -38,12 +38,13 @@ EMAIL_USE_SSL = config(
 ADMIN_USER_NAME = config("ADMIN_USER_NAME", default="Admin user")
 ADMIN_USER_EMAIL = config("ADMIN_USER_EMAIL", default=None)
 
-MANAGERS = []
-ADMINS = []
-if all([ADMIN_USER_NAME, ADMIN_USER_EMAIL]):
-    # 500 errors are emailed to these users
-    ADMINS += [(f"{ADMIN_USER_NAME}", f"{ADMIN_USER_EMAIL}")]
-    MANAGERS = ADMINS
+
+ADMINS = [('Justin', 'codingchamps@gmail.com')]
+MANAGERS = ADMINS
+# if all([ADMIN_USER_NAME, ADMIN_USER_EMAIL]):
+#     # 500 errors are emailed to these users
+#     ADMINS += [(f"{ADMIN_USER_NAME}", f"{ADMIN_USER_EMAIL}")]
+#     MANAGERS = ADMINS
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
