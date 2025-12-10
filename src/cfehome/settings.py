@@ -74,24 +74,19 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
 
-    # Allauth apps (ADD THESE EXACTLY)
+    # Allauth apps
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "allauth.socialaccount.providers.github",
+    
     # my-apps
     "commando",
-    
-    # "profiles",
-    # "slippers",
-    # "subscriptions",
     "visits",
-    # # third-party-apps
-    # "allauth_ui",
-    # "allauth",
-    # "allauth.account",
-    # "allauth.socialaccount",
-    # "allauth.socialaccount.providers.github",
-    # "widget_tweaks",
+    "user_auth",
+    
+    # third-party apps
+    "widget_tweaks",
 ]
 
 MIDDLEWARE = [
@@ -100,7 +95,7 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
+     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "allauth.account.middleware.AccountMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
