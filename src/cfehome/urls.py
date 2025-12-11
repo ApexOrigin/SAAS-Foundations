@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from user_auth.views import login_view
+from user_auth.views import login_view, register_view
 from .views import (
     home_view, 
     about_view, 
@@ -13,6 +13,7 @@ urlpatterns = [
     path("", about_view, name='home'),
     path("about/", about_view, name='about'),
     path("login/", login_view, name='login'),
+    path("register/", register_view, name='register'),
     path("hello-world/", home_view, name='hello-world'),
     path("hello-world.html", home_view),
     path('protected/user-only/', user_only_view),
