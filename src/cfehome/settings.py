@@ -84,9 +84,11 @@ INSTALLED_APPS = [
     "commando",
     "visits",
     "user_auth",
+    "profiles",
+    "subscriptions",
     
     # third-party apps
-    "widget_tweaks",
+    # "widget_tweaks",
 ]
 
 MIDDLEWARE = [
