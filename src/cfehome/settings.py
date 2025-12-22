@@ -11,12 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-import warnings
 
 from decouple import config
-
-# Suppress whitenoise warnings about missing directories
-warnings.filterwarnings('ignore', message='No directory at:')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -72,23 +68,20 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django.contrib.sites",
-
-    # Allauth apps
+    # my-apps
+    "commando",
+    "customers",
+    "profiles",
+    "slippers",
+    "subscriptions",
+    "visits",
+    # third-party-apps
+    "allauth_ui",
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.github",
-    
-    # my-apps
-    "commando",
-    "visits",
-    "user_auth",
-    "profiles",
-    "subscriptions",
-    
-    # third-party apps
-    # "widget_tweaks",
+    "widget_tweaks",
 ]
 
 MIDDLEWARE = [
@@ -97,13 +90,12 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
-     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "allauth.account.middleware.AccountMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-SITE_ID=1
 ROOT_URLCONF = "cfehome.urls"
 
 TEMPLATES = [
@@ -138,8 +130,7 @@ DATABASES = {
 CONN_MAX_AGE = config("CONN_MAX_AGE", cast=int, default=300)
 DATABASE_URL = config("DATABASE_URL", default="", cast=str)
 
-# Only use DATABASE_URL if it's a valid PostgreSQL connection string
-if DATABASE_URL and DATABASE_URL.startswith(("postgres://", "postgresql://", "postgres+psycopg://", "postgresql+psycopg://")):
+if DATABASE_URL and DATABASE_URL != "":
     import dj_database_url
 
     DATABASES = {
@@ -251,3 +242,9 @@ STORAGES = {
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]

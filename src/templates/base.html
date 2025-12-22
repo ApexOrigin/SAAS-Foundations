@@ -1,19 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Saas</title>
+<html>
+<head>
+    <title>{% block head_title %} APEX SaaS {% endblock head_title %}</title>
     {% include 'base/css.html' %}
-  </head>
-  <body>
+</head>
+<body>
     {% include 'nav/navbar.html' %}
-    <div class="max-w-screen-xl mx-auto px-4 py-8">
-      <h1 class="text-3xl font-bold">{{page_title}}</h1>
-      {% block content %}
-      <!-- Child templates replace this block -->
-      {% endblock %}
-    </div>
-  </body>
-  {% include 'base/js.html' %}
+    {% include 'base/messages.html' with messages=messages %}
+    {% block content %}
+    {% endblock content %}
+    {% include 'base/js.html' %}
+</body>
 </html>
