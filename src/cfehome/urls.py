@@ -29,6 +29,17 @@ from .views import (
     staff_only_view
 )
 
+from django.http import HttpResponse
+from django.urls import path
+
+def home(request):
+    return HttpResponse("🚀 App is live")
+
+urlpatterns = [
+    path("", home),
+]
+
+
 urlpatterns = [
     # urls.py
     path("", TemplateView.as_view(template_name="home.html"), name="home"),
