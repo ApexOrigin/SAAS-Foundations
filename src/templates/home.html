@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Live</title>
-</head>
-<body>
-  <h1>🚀 App is live</h1>
-  <p>If you can see this, Railway routing is working.</p>
-</body>
-</html>
+{% extends 'base.html' %} 
+{% block head_title %} Homepage - {{ block.super }}
+{%endblock head_title %} 
+
+{% block content %}
+<p>Hello Again! Welcome to the homepage.</p>
+{% include 'snippets/welcome-user-msg.html' %}
+
+
+<p>Page visits : {{page_visit_count}}</p>
+<p>Total Page visits : {{page_visit_count}}</p>
+<p>Percent : {{percent}}</p>
+{% endblock content %}
