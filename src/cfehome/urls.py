@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from auth import views as auth_views
 from checkouts import views as checkout_views
+from django.views.generic import TemplateView
 from landing import views as landing_views
 from subscriptions import views as subscriptions_views
 from .views import (
@@ -29,6 +30,8 @@ from .views import (
 )
 
 urlpatterns = [
+    # urls.py
+    path("", TemplateView.as_view(template_name="home.html"), name="home"),
     path("", landing_views.landing_dashboard_page_view, name='home'),
     path("checkout/sub-price/<int:price_id>/", 
             checkout_views.product_price_redirect_view,
